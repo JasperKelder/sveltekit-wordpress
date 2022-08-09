@@ -23,7 +23,10 @@
 <h1>SvelteKit Wordpress</h1>
 {#each posts as post}
   <h2>{@html post.title.rendered}</h2>
-  <img src={post.image} alt={post.title.rendered} />
+  <img src={post.image} alt={post.title.rendered} width="1000px" />
   <p>{@html post.excerpt.rendered}</p>
   <a sveltekit:prefetch href={`/posts/${post.slug}`}>Read More</a>
 {/each}
+
+<style>
+</style>

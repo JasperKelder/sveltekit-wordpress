@@ -25,6 +25,14 @@
 <p><small>{new Date(post.date)}</small></p>
 <p><b>by {post.author}</b></p>
 {#if post.image}
-  <img src={post.image} alt={post.title.rendered} />
+  <div class="container">
+    <img src={post.image} alt={post.title.rendered} />
+  </div>
 {/if}
 <p>{@html post.content.rendered}</p>
+
+<style>
+  .container {
+    align-items: center;
+  }
+</style>
