@@ -26,10 +26,25 @@
     z-index: 2;
     background-color: var(--white);
     border-bottom: 0.2rem solid var(--orange);
+    box-shadow: 0 0 0.5rem var(--orange);
+    transition: box-shadow 0.4s;
+  }
+
+  header:hover {
+    box-shadow: 0 0 1.5rem var(--orange);
+  }
+
+  a {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
   }
 
   img {
     height: 15.3px;
-    margin-left: 25px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 3rem;
   }
 </style>

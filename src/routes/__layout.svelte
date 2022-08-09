@@ -42,6 +42,7 @@
     box-sizing: border-box;
     scrollbar-gutter: stable;
     font-family: sans-serif;
+    background-color: var(--white);
   }
 
   :global(img) {

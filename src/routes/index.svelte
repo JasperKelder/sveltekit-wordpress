@@ -20,13 +20,57 @@
   export let posts;
 </script>
 
-<h1>SvelteKit Wordpress</h1>
-{#each posts as post}
-  <h2>{@html post.title.rendered}</h2>
-  <img src={post.image} alt={post.title.rendered} width="1000px" />
-  <p>{@html post.excerpt.rendered}</p>
-  <a sveltekit:prefetch href={`/posts/${post.slug}`}>Read More</a>
-{/each}
+<ul>
+  {#each posts as post}
+    <li class="post">
+      <a sveltekit:prefetch href={`/posts/${post.slug}`}>
+        <h2>{@html post.title.rendered}</h2>
+        <img src={post.image} alt={post.title.rendered} width="1000px" />
+        <p>{@html post.excerpt.rendered}</p>
+      </a>
+    </li>
+  {/each}
+</ul>
 
 <style>
+  ul {
+    list-style-type: none;
+  }
+
+  .post {
+    position: relative;
+    text-align: center;
+    padding-bottom: 50px;
+    cursor: pointer;
+  }
+
+  .post h2,
+  .post p {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--orange);
+    text-shadow: 0 0 1rem var(--black);
+    transition: text-shadow 0.6s;
+  }
+
+  .post h2 {
+    top: 25%;
+    font-size: 4rem;
+  }
+
+  .post p {
+    bottom: 25%;
+    font-size: 1.8rem;
+    color: var(--white);
+  }
+
+  img {
+    box-shadow: 0 0 1rem var(--black);
+    transition: box-shadow 1s;
+  }
+
+  img:hover {
+    box-shadow: 0 0 2rem var(--orange);
+  }
 </style>
